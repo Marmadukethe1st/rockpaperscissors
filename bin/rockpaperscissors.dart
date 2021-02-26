@@ -7,11 +7,9 @@ void main(List<String> arguments) {
   sleep(const Duration(seconds: 1));
   print('Ready?');
   sleep(const Duration(seconds: 1));
+  var picks = {'1': 'Rock', '2': 'Paper', '3': 'Scissors'};
   print('''Whats you pick?
-    1. Rock
-    2. Paper
-    3. Scissors
-  ''');
+    $picks''');
   String pick = stdin.readLineSync();
   sleep(const Duration(seconds: 1));
   print('Good Choice.........');
@@ -20,6 +18,15 @@ void main(List<String> arguments) {
   sleep(const Duration(seconds: 3));
   print('Your opponent picks......');
   sleep(const Duration(seconds: 1));
-  Random random = new Random();
+  Random random = Random();
   int randomNumber = random.nextInt(3) + 1;
+  print(picks['$randomNumber']);
+  if (randomNumber == pick) {
+    print('Draw!');
+  } else if (randomNumber == 1 && pick == 3) {
+    print('You Lose!');
+  } else {
+    print('You Win!');
+  }
+  ;
 }
